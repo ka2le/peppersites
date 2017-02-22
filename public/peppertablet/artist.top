@@ -1,0 +1,82 @@
+topic: ~artist()
+language: enu
+
+concept:(wine) [red white] wine
+concept:(justin) [justin timberlake JT]
+concept:(music) [music artist]
+concept:(no) [nah no negative n]
+concept:(yes) [yea yes y yeah sure]
+concept:(dontcare) ["dont care" whatever anything]
+concept:(ready) [ready "lets go" play start go]
+concept:(trivia) [trivia]
+concept:(activitySuggestion) ["Let me see you do a somersault" "Jump as high as you can"]
+concept:(theAlbums) [Justified Lovesounds "The 20/20 experience"]
+concept:(number) [1 2 3 4 5 6 7 8 9 10]
+concept:(bodyPart) [foot hand]
+concept:(leftRight) [left right]
+concept:(color) [blue yellow red green orange]
+concept:(dontknow) ["I dont know" "no idea" "dont know" no]
+
+u:(e:onStart) Hi do you want to talk about music?
+    u1:(~justin) Okay, lets talk about Justin Timberlake ^goto(startMenu)
+    u1:(~yes) Okay, tell me then - Who is your favourit artist?
+        u2:(~JT) I like Justin Timberlake too ^goto(startMenu)
+    u1:(~no) Okay, we can do something else then. Play twister perhaps?
+        u2:(~yes) ^goto(twisterGame)
+
+u:(I want to talk about justin) %startMenu Okay. Do you want to take a quiz about him, listen to some music or do you want to learn more about him? ^stayInScope
+    u1:(quiz) ^goto(theQuiz)
+    u1:(listen) ^goto(playMusic)
+    u1:(learn more) ^goto(learnMore)
+
+u:(learn) %learnmore Do you have any questions about Justin or do you want me to tell you?
+    u:(questions) ^goto(answerQ)
+    u:(tell me) ^goto(stoyMode)
+    #ALL QUESTIONS HERE
+    u1:(how old is justin) He is 36 years old. ^goto(moreToAsk)
+    u1:(where as he born) He was born in Mephis ^goto(moreToAsk)
+u:(moreToAsk) %moreToAsk Do you want to ask more questions?
+    #ALL QUESTIONS HERE
+    u1:(~yes) ^goto(answerQ)
+    u1:(~no) ^goto(startMenu)
+    u1:(how old is justin) He is 36 years old. ^goto(moreToAsk)
+    u1:(where as he born) He was born in Mephis ^goto(moreToAsk)
+u:(answerQ) %answerQ What is your question?
+    #ALL QUESTIONS HERE
+    u1:(how old is justin) He is 36 years old. ^goto(moreToAsk)
+    u1:(where as he born) He was born in Mephis ^goto(moreToAsk)
+u:(story) %storyMode Look at my stomach to see the headlines and tell me what you want to hear about?
+    u1:(early life)  
+    
+    
+
+u:(play music) Okay lets play some music. What song do you want to hear?
+    u:(~dontknow) I can help you find a song. Pick one from the list on my stomach.
+    u:(mirrors) I will play the song Mirrors. $startYoutube=1
+
+u:(quiz) %theQuiz Starting the quiz $quizScore=0 ^goto(selectNextQ) 
+u:(selectQ) %selectNextQ [^goto(q1) ^goto(q2)]
+u:(moreQs) %moreQs Your score is $quizScore . Do you want another question?
+    u1:(~yes) Ok. Here come another one. ^goto(selectNextQ) 
+    u1:(~no) Okay. Well played. Just tell me if you want to do a quiz again sometime.     
+u:(q1) %q1 How old is Justin Timberlake?
+    u1:(_*) I heard you say $1 . The correct answer is that he is 36 years old. ^goto(moreQs)     
+    u1:(36) Correct! Good job! $quizScore=1 ^goto(moreQs)
+    u1:(~dontknow) I'll tell you then. He is 36 years old. ^goto(moreQs)   
+u:(q2) %q2 In what city was he born?
+    u1:(memphis) Correct! Good job! $quizScore=2 ^goto(moreQs) 
+    u1:(~dontknow) I'll tell you then. He was born in Memphis. ^goto(moreQs) 
+    u1:(_*) I heard you say $1 . The correct answer is that he iwas born in Memphis. ^goto(moreQs) 
+
+
+u:(twister) Lets play some Twister. Get your twister set up and tell me when you are ready!
+    u1:(~ready) Okay let's start. How many will be playing?
+        u2:(_~number) Starting a game for $1 players. $nmbPlayers=$1 ^first["$nmbPlayers==2 ^goto(2playergame)" "invalide number"]
+u:(2playergame) %2playergame Player1 put you ^rand[~leftRight] ^rand[~bodyPart] on ^rand[~color]  When you are done, let me know by saying ready and I will give the next player their instructions.
+    u1:(~ready) Player2 put your    ^rand[~leftRight] ^rand[~bodyPart] on ^rand[~color] . I will keep giving new instructions when you say ready until one of you wins.
+         u2:(~ready) ^goto(2playergameLoop)       
+u:(2playergameLoop) %2playergameLoop Player1 put your   ^rand[~leftRight] ^rand[~bodyPart] on ^rand[~color]  . 
+    u1:(~ready) Player2 put your   ^rand[~leftRight] ^rand[~bodyPart] on ^rand[~color] .
+        u2:(~ready) ^goto(2playergameLoop)
+        u2:(stop) Oh? Its over. My eyes dont work so good all the time. Can you tell me who won?
+            u3:(_*) Congratulations to $1 

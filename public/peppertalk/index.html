@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Peppertalk</title>
+	<!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+	 <script src="functions.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">PepperTalk</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Pepper Talk Interface</h1>
+		<form>
+    <div class="form-group row">
+      <label for="ipF" class="col-sm-2 col-form-label">Flask IP</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="ipF"  value="31.192.203.149" placeholder="IP">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="portF" class="col-sm-2 col-form-label">Flask Port</label>
+      <div class="col-sm-10">
+        <input  class="form-control" id="portF" value="5000" placeholder="Port">
+      </div>
+    </div>
+	 <div class="form-group row">
+      <label for="ip" class="col-sm-2 col-form-label">Pepper IP</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="ip"  value="127.0.0.1" placeholder="IP">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="port" class="col-sm-2 col-form-label">Pepper Port</label>
+      <div class="col-sm-10">
+        <input  class="form-control" id="port" value="9559" placeholder="Port">
+      </div>
+    </div>
+ <div class="form-group row">
+      <label for="text" class="col-sm-2 col-form-label">Say:</label>
+      <div class="col-sm-10">
+        <input  class="form-control" id="text" value="Hello World!" placeholder="Message">
+      </div>
+    </div>
+ <div class="form-group row">
+		<input type="button" onclick="talk()" class="btn btn-lg  btn-block   btn-primary" value="Talk">
+    </div>
+  </form>
+		
+		
+		
+
+
+</form>
+  <br>
+ 
+				
+				
+				
+				
+               
+            </div>
+        </div>
+        <!-- /.row -->
+ <ul class="list-unstyled">
+                    <li style="position:absolute; bottom:50px; right: 50px;">by Kalle Kindvall</li>
+                </ul>
+    </div>
+    <!-- /.container -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+
+</body>
+
+</html>
